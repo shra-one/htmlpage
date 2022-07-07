@@ -1,0 +1,128 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+ 
+h1 {
+line-height:normal;
+font-weight:800;
+font-size: 3.375rem;
+color: white;
+}
+h1::before {
+    content: "Before";
+    color: red;
+}
+h1::after {
+    content: "After";
+    color: red;
+}
+ 
+h2 {
+
+}
+h3 {
+
+}
+h4 {
+
+}
+h5 {
+
+}
+h6 {
+
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+ 
+.container {
+    max-width: 1170px;
+    margin:0 auto;
+
+
+}
+.header {
+    max-width: 90%;
+    margin:0 auto;
+}
+.section-header {
+    max-width: 90%;
+    margin:0 auto;
+}
+
+
+.hero img {
+   /* border:4px solid red; */
+}
+.hero {
+    position: relative;
+    /* background-color: blue; */
+    height:100vh;
+    max-height: 600px;
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: white;
+/* background-color: black; */
+}
+.hero::before{
+    content:"";
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+}
+
+.hero >img {
+    object-fit: cover;
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+    /* opacity: 0.2; */
+    z-index: -2;   
+
+}
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+.bg {
+    background: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flex {
+    display:flex;
+    width: 800px;
+    height: 600px;
+    background-color: lightgray;
+    /* flex-direction: row; */
+    justify-content: flex-start;
+    gap:24px;
+}
+.flex >.box {
+    width:100px;
+    height: 100px;
+    background-color: red;
+}
+ 
