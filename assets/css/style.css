@@ -58,6 +58,7 @@ img {
 .container {
   max-width: 1170px;
   margin: 0 auto;
+  padding: 0 16px;
 }
 
 .header {
@@ -235,4 +236,44 @@ button {
 }
 .main-menu__item--hasDropdown > a:hover {
   color: red;
+}
+
+.article {
+  --imgWidth:500px;
+  display: flex;
+  gap: 32px;
+}
+@media (max-width: 963px) {
+  .article {
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+}
+.article__content {
+  flex: 1;
+}
+.article__figure {
+  flex: 0 1 var(--imgWidth);
+}
+@media (max-width: 963px) {
+  .article__figure {
+    --imgWidth:auto;
+  }
+}
+
+.article--2 {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.article--2__content {
+  flex: 1;
+}
+@media (max-width: 963px) {
+  .article--2__content {
+    order: 1;
+  }
+}
+.article--2__figure {
+  flex: 0 1 500px;
 }/*# sourceMappingURL=style.css.map */

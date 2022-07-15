@@ -78,6 +78,7 @@ img {
 .container {
     max-width: 1170px;
     margin:0 auto;
+    padding:0 16px;
 
 
 }
@@ -281,13 +282,59 @@ button {
    }
 
 }
+@function rem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
+@function em($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
 
-.main-menu__item {
-    //
-}
-.main-menu__item--hasDropdown{
-    //
-}
-.main-menu__link {
 
+.article {
+    --imgWidth:500px;
+    display:flex;
+    gap:32px;
+    @media(max-width:963px){
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+    }
+    &__content {
+        flex:1;
+       
+        
+    }
+    &__figure { // .artcile__figure
+        flex:0 1 var(--imgWidth);
+        @media(max-width:963px){
+            --imgWidth:auto;
+        }
+        //flex-grow:0
+        //flex-shrink:1
+        //flex-basis:500px;
+    }
 }
+
+.article--2 {
+  
+    display:flex;
+    gap:32px;
+   flex-wrap:wrap;
+    &__content {
+        flex:1;
+        @media(max-width:963px){
+       order:1;
+        }
+        
+    }
+    &__figure { // .artcile__figure
+        flex:0 1 500px;
+        
+        //flex-grow:0
+        //flex-shrink:1
+        //flex-basis:500px;
+    }
+}
+
+ 
