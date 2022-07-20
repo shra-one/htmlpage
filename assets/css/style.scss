@@ -3,7 +3,25 @@
     padding:0;
     box-sizing: border-box;
 }
- 
+ /* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: blue;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: green;
+  }
  
 a {
     /* text-decoration: underline; */
@@ -37,24 +55,20 @@ body {
 h1 {
  
  color:var(--color);
- color:$primary;
+//  color:$primary;
 line-height:normal;
 font-weight:800;
 font-size:calc(var(--h1));
 }
-@media(max-width:600px){
-h1 {
-    --color:red;
-}
-}
-h1::before {
-    content: "Before";
-    color: red;
-}
-h1::after {
-    content: "After";
-    color: red;
-}
+ 
+// h1::before {
+//     content: "Before";
+//     color: red;
+// }
+// h1::after {
+//     content: "After";
+//     color: red;
+// }
  
 h2 {
 
@@ -218,8 +232,8 @@ button {
 }
 
 .btn {
-    background-color: $primaryDark;
- 
+    background-color:blue;
+    display: inline-block;
     color: white;
     /* padding:top right bottom left; */
     /* padding: 12px 8px 12px 8px; */
@@ -287,6 +301,16 @@ button {
     > * {
         flex: 1 0 250px;
         background: lightblue;
+        &:nth-child(4) {
+            flex-basis: 50%;
+            flex-grow:0;
+            background-color: red;
+        }
+        &:nth-child(5) {
+            flex-basis: 50%;
+            flex-grow:0;
+            background-color: blue;
+        }
       
     }
 }
@@ -362,6 +386,11 @@ button {
         //flex-shrink:1
         //flex-basis:500px;
     }
+    &__title {
+        &::first-letter {
+            color:blue;
+        }
+    }
 }
 
 .div {
@@ -392,5 +421,154 @@ button {
 
 }
 
+.styled-heading {
+   font-size: 48px;
+   position: relative;
+
+//    &:before {
+//     content: '';
+//     display: inline;
+   
+//     height: 6px;
+//     width: 100vw;
+//     background-color: var(--color);
+//     position: absolute;
+//     right: calc(100% + 16px);
+//     top:  30px;
+//    }
+//    &:after {
+//     content: '';
+//     display: inline;
+   
+//     height: 6px;
+//     width: 100vw;
+//     background-color: var(--color);
+//     position: absolute;
+//     left: calc(100% + 16px);
+//     bottom:  20px;
+//    }
+   >span {
+    position: relative;
+   }
+>span:first-child {
+ 
+    &:before {
+        content: '';
+        display: inline;
+       
+        height: 6px;
+        width: 100vw;
+        background-color: var(--color);
+        position: absolute;
+        right: calc(100% + 16px);
+        top: 50%;
+        transform: translateY(-50%);
+       }
+}
+  >span:last-child {
+    // background-color: blue;
+   
+    align-items: center;
+    gap:16px;
+    &:after {
+        content: '';
+        display: inline;
+       
+        height: 6px;
+        width: 100vw;
+        background-color: var(--color);
+        position: absolute;
+    left: calc(100% + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+       }
+  }
+   
+}
+
+.dots {
+    .dot {
+        border-radius: 50%;
+        width:16px;
+        height: 16px;
+        background-color: lightgray;
+        display: inline-block;
+        &.active {
+            background-color: red;
+             & + .dot:nth-of-type(n+4) {
+                background-color: red;
+            }
+        }
+    }
+}
+
 //SLIDER
+.slick-prev {
+
+}
+.slick-next {
+// right:0;
+}
+.slick-arrow {
+    // position: absolute;
+    // z-index: 2;
+    // top: 50%;
+    // transform:translateY(-50%);
+    padding: 8px;
+}
+
+.hero-slider {
+    position: relative;
+}
+.hero-nav {
+    position: absolute;
+    bottom:32px;
+    left:0;
+    right:0;
+    display: flex;
+    justify-content: center;
+    gap:16px;
+}
+#hero-nav {
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+    // display: flex;
+    // gap:16px;
+    bottom:50px;
+   // .slick-arrow:not(:last-child) {
+   //      margin-right:16px;
+   //  }
+    .slick-arrow:first-child {
+         margin-right:16px;
+    }
+    
+}
+
+.testimonial-slider {
+    .slick-dots {
+        list-style: none;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    >li {
+        &.slick-active {
+            button {
+                background-color: green;
+            }
+        }
+        button {
+            --size:24px;
+            background-color: transparent;
+            width:var(--size);
+            height:var(--size);
+            border-radius: 50%;
+            text-indent: -9999px;
+    
+
+            
+        }
+    }
+    }
+}
 //UNIT - px, % , rem, em, vh, vw, ch
