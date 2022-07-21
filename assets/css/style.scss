@@ -7,7 +7,10 @@
 ::-webkit-scrollbar {
     width: 8px;
   }
-  
+  html {
+    // font-size: 16px;
+   
+  }
   /* Track */
   ::-webkit-scrollbar-track {
     background: #f1f1f1;
@@ -46,7 +49,7 @@ $accent:#FE7949;
 
 body {
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
+    // font-size: 16px;
     color:var(--color);
     overflow-x: hidden;
 }
@@ -58,7 +61,14 @@ h1 {
 //  color:$primary;
 line-height:normal;
 font-weight:800;
-font-size:calc(var(--h1));
+font-size: 2rem;
+// margin-bottom: 32px;
+ margin-bottom: 1em; //root fontsize 16px x 1= 16px , 16px x 2 = 32px;
+ @media(max-width:600px){
+    font-size: 1rem;
+    // margin-bottom: 16px;  //root fontsize 16px x 1= 16px , 16px x 1 = 16px
+    
+ }
 }
  
 // h1::before {
@@ -333,14 +343,8 @@ button {
    }
 
 }
-@function rem($value) {
-    $remValue: ($value / 16) + rem; 
-    @return $remValue;
-}
-@function em($value) {
-    $remValue: ($value / 16) + rem; 
-    @return $remValue;
-}
+
+
 
 
 .article {
@@ -393,16 +397,7 @@ button {
     }
 }
 
-.div {
-    width:200px;
-    height: 200px;
-    border:4px solid red; 
-    overflow-y:auto;   
-    margin: 50px 0;
-    padding:20px;
 
-     
-}
  
 .avatar {
     --size:120px;
@@ -572,3 +567,82 @@ button {
     }
 }
 //UNIT - px, % , rem, em, vh, vw, ch
+html {
+    // font-size: 16px;
+}
+
+@function rem($value, $baseSize:16) {
+    $remValue: ($value / $baseSize) + rem; 
+    @return $remValue;
+}
+@function em($value, $baseSize:16) {
+    $remValue: ($value / $baseSize) + em; 
+    @return $remValue;
+}
+//example
+.div {
+    width:rem(200);
+    height: rem(200);
+    border:em(12) solid red; 
+    overflow-y:auto;   
+    margin: rem(33) 0;
+    padding:1.5rem; //28px
+    font-size: 16px;
+    @media(max-width:600px){
+        font-size: 12px;
+    }
+    
+   
+
+     
+}
+/*=============================================
+=            RED            =
+=============================================*/
+
+// 1rem = relative to root font size which is 16px = 1 x 14px = 14px
+// 2rem= 28px;
+// uses: font-size, width, height, transform scale, translate, 
+// optional uses: padding, margin
+
+
+/*=====  End of RED  ======*/
+
+
+/*=============================================
+=            EM            =
+=============================================*/
+// 1em = relative to  font size of same tag or parent tag  = 1 x 14px = 14px
+// 2em= 28px;
+// uses: padding, margin, line-height
+
+
+/*=====  End of EM  ======*/
+
+.site-header {
+    nav {
+        ul {
+            li {
+                a {
+                    font-size: 1rem;
+                    padding: 0.5em;
+                }
+            }
+        }
+    }
+}
+
+// TRANSFORM, TRANSITION, MARGIN, POSITION 
+// negative value on margin
+// stacking
+
+// AOS, WOW vendor plugin
+// ANIMATE ON SCROLL
+// WHITE SPACE
+// DISPLAY: COLUMN,
+
+// DISPLAY : GRID
+
+// BOOSTRAP
+
+
