@@ -192,10 +192,23 @@ button {
   /* padding:top-bottom left-right; */
   padding: 12px;
   border-radius: 4px;
+  border: 2px solid blue;
+  transition: all 0.3s;
+}
+.btn .fa {
+  margin-left: -8px;
+  opacity: 0;
+  transition: margin 0.3s, opacity 0.3s 5s;
 }
 
 .btn:hover {
-  background-color: var(--primaryDark, );
+  background-color: transparent;
+  transform: translateY(15px);
+  border-color: white;
+}
+.btn:hover .fa {
+  margin-left: 4px;
+  opacity: 1;
 }
 
 .row2 {
@@ -315,6 +328,20 @@ button {
 .article--2__figure {
   flex: 0 1 500px;
 }
+.article--2__title {
+  position: relative;
+}
+.article--2__title::after {
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: darkslateblue;
+  display: block;
+  transition: width 0.3s;
+}
+.article--2__title:hover::after {
+  width: 100%;
+}
 .article--2__title::first-letter {
   color: blue;
 }
@@ -433,8 +460,7 @@ button {
   border: 0.75em solid red;
   overflow-y: auto;
   margin: 2.0625rem 0;
-  padding: 1.5rem;
-  font-size: 16px;
+  padding: 1.5em;
 }
 @media (max-width: 600px) {
   .div {
@@ -453,4 +479,29 @@ button {
 .site-header nav ul li a {
   font-size: 1rem;
   padding: 0.5em;
+}
+
+.card {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.1, 1.51, 0.87, 1.63);
+}
+.card .card-content {
+  padding: 24px;
+}
+.card .card-header {
+  background-color: lightyellow;
+}
+.card .card-header--transform {
+  transform: translateY(-70px);
+}
+.card .card-header--margin {
+  margin-top: -70px;
+  position: relative;
+}
+.card .card-header--position {
+  position: absolute;
+  top: 138px;
+}
+.card--bestPlan:hover {
+  transform: scale(1.2);
 }/*# sourceMappingURL=style.css.map */

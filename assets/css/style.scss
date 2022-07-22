@@ -250,10 +250,23 @@ button {
     /* padding:top-bottom left-right; */
     padding:12px;
     border-radius: 4px;
+    border:2px solid blue;
+    transition:all 0.3s;
+    .fa {
+        margin-left:-8px;        
+       opacity: 0;
+       transition: margin 0.3s, opacity 0.3s 5s;
+    }
 
 }
 .btn:hover {
-    background-color: var(--primaryDark, );
+    background-color: transparent;
+    transform:translateY(15px);
+    border-color:white;
+    .fa {
+       margin-left:4px;
+        opacity: 1;
+    }
 }
 .row2 {
     --col:1;
@@ -391,6 +404,20 @@ button {
         //flex-basis:500px;
     }
     &__title {
+        position: relative;
+        &::after {
+            content: "";
+            width: 100px;
+            height: 2px;
+            background-color: darkslateblue;
+            display: block;
+            transition: width 0.3s;
+        }
+        &:hover {
+            &::after {
+                width:100%;
+            }
+        }
         &::first-letter {
             color:blue;
         }
@@ -575,10 +602,22 @@ html {
     $remValue: ($value / $baseSize) + rem; 
     @return $remValue;
 }
-@function em($value, $baseSize:16) {
+@function sem($value, $baseSize:16) {
     $remValue: ($value / $baseSize) + em; 
     @return $remValue;
 }
+
+@function em($pixels, $context:16) {
+    @if (unitless($pixels)) {
+      $pixels: $pixels * 1px;
+    }
+  
+    @if (unitless($context)) {
+      $context: $context * 1px;
+    }
+  
+    @return $pixels / $context * 1em;
+  }
 //example
 .div {
     width:rem(200);
@@ -586,8 +625,8 @@ html {
     border:em(12) solid red; 
     overflow-y:auto;   
     margin: rem(33) 0;
-    padding:1.5rem; //28px
-    font-size: 16px;
+    padding:em(24px); //28px
+    
     @media(max-width:600px){
         font-size: 12px;
     }
@@ -636,6 +675,41 @@ html {
 // negative value on margin
 // stacking
 
+.card {
+    position: relative;
+    transition: transform 0.3s cubic-bezier(.1,1.51,.87,1.63) ;
+    // transition-property: transform;
+    // transition-duration: 0.3s;
+    // transition-timing-function: ease-in;
+    // transition-delay: 5s;
+    .card-content {// &-content
+        padding:24px;
+    }
+    .card-header { // &-header
+        background-color: lightyellow;
+        &--transform {
+            transform: translateY(-70px);
+        }
+        &--margin {
+            margin-top: -70px;
+            position: relative;
+        }
+        &--position {
+            position: absolute;
+    top: 138px;
+        }
+    }
+
+    &--bestPlan {
+       // transform:scale(1.2);
+       &:hover {
+        transform:scale(1.2);
+       }
+    }
+}
+
+// FORMS
+// INPUTS, BUTTTONS, RADIO, CHECKED , CSS 
 // AOS, WOW vendor plugin
 // ANIMATE ON SCROLL
 // WHITE SPACE
@@ -644,5 +718,7 @@ html {
 // DISPLAY : GRID
 
 // BOOSTRAP
+
+// SASS
 
 
