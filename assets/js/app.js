@@ -14,6 +14,21 @@ $(document).ready(function(){
  
   });
 
+  // hero--2 carousel code goes here
+  $('#js-hero-img-carousel').slick({
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+   //  arrows:false,
+    appendArrows:"#hero-nav2",
+    prevArrow:"<button class='slick-arrow'><i class='fa fa-angle-left'></i></button>",
+    nextArrow:"<button class='slick-arrow'><i class='fa fa-angle-right'></i></button>",
+   //  speed: 500,
+    fade: true,
+   //  cssEase: 'linear'
+ 
+  });
+
   //testimonial slider
   $('#js-testnimonial-slider').slick({
    dots: true,

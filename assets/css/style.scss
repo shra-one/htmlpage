@@ -268,6 +268,34 @@ button {
         opacity: 1;
     }
 }
+
+.btn-secondary {
+    background-color:white;
+    display: inline-block;
+    color: blue;
+    /* padding:top right bottom left; */
+    /* padding: 12px 8px 12px 8px; */
+    /* padding:top-bottom left-right; */
+    padding:12px;
+    border-radius: 4px;
+    border:2px solid blue;
+    transition:all 0.3s;
+    .fa {
+        margin-left:-8px;        
+       opacity: 0;
+       transition: margin 0.3s, opacity 0.3s 5s;
+    }
+
+}
+.btn:hover {
+    background-color: transparent;
+    transform:translateY(15px);
+    border-color:white;
+    .fa {
+       margin-left:4px;
+        opacity: 1;
+    }
+}
 .row2 {
     --col:1;
     --gutter:16px;
@@ -702,12 +730,49 @@ html {
 
     &--bestPlan {
        // transform:scale(1.2);
+       position: relative;
+       z-index: 1;
        &:hover {
         transform:scale(1.2);
        }
     }
 }
+.section {
+    padding: 40px 0;
+}
+.color-white {
+    color:white;
+}
+[data-bg]{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    &:before {
+        content: "";
+        width:100%;
+        height: 100%;
+        position: absolute;
+        top:0;
+        left:0;        
+        background-color: rgba(0, 0, 0, 0.75);
 
+    }
+    .container {
+        position: relative;
+    }
+}
+
+.section--cta {
+    color:white;
+    .row .col {
+        background-color: transparent;
+    }
+    .section-title {
+        font-size: rem(32);
+        line-height: 150%;
+        margin-bottom: em(20, 32);
+    }
+}
 // FORMS
 // INPUTS, BUTTTONS, RADIO, CHECKED , CSS 
 // AOS, WOW vendor plugin
@@ -722,3 +787,83 @@ html {
 // SASS
 
 
+.hero {
+    &-content {
+        padding:32px 0;
+    }
+
+    &--2 {
+         position: relative;
+         height:100vh;
+         display: flex;
+         align-items: center;
+         
+         &::before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+           inset:0 auto auto 0;
+        //    background-color: rgba(0, 0, 0, 0.50);
+           background-color: rgba(0, 0, 0, 0.5);
+           //Red: 000000; or 000; or 0
+           //Green: 0000000; or 000; or 0
+           //Blue: 000000; or 000; or 0
+          // Alpha:25%;
+          z-index: 1;
+          
+         }
+        .container {
+            position: relative;
+            z-index: 1;
+            .btn {
+                background-color: white;
+            }
+            *:not(.btn-secondary) {
+                color:white;
+            }
+        }
+        .hero-title {
+            font-size: 58px;
+    font-weight: bold;
+    margin-bottom: 0;
+    text-transform: capitalize;
+    line-height: 120%;
+        }
+        .lead {
+            margin-bottom: 0;
+        }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap:16px;
+            max-width: 80ch;
+        }
+
+        .hero-img-carousel {
+            position: absolute;
+            // top:0;
+            // left:0;
+            // right:0;
+            // bottom:0;
+            inset:0 0 0 0;
+            width:100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .slick-list {
+                height:100%;
+                .slick-track {
+                    height: inherit;
+                }
+            }
+        }
+            
+    }
+}
