@@ -16,6 +16,8 @@
     />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -418,7 +420,7 @@
       </div>
       
      </section>
-     <section class="section section--cta" style="background-image:url(./assets/img/banner2.jpg)" data-bg>
+     <section class="section  section--cta" style="background-image:url(./assets/img/banner2.jpg)" data-bg>
       <div class="container">
         <h1 class="color-white">Forms</h1>
         <div class="row">
@@ -427,13 +429,62 @@
             <p>Email us with any questions or inquiries or call (02) 7209 6271. We would be happy to answer your questions and set up a meeting with you.</p>
           </div>
           <div class="col">
-            <form action="" method="get">
-              <input type="text" name="full name" id="" size="30"   placeholder="Enter your name *" required>
-              <input type="email" name="email" id="">
-              <input type="tel" name="phone" placeholder="phone" id=""  maxlength="6">
-              <input type="number" name="email" id=""   placeholder="pin number *" required>
+
+            <!--form starts-->
+             
+            <form action="" method="post" validate>
+              <!-- text, email, tel, number, textarea, checkbox, radio, button, range, hidden, -->
+              <!-- <input type="text" name="fullname" id="" value="Shrawanks" placeholder="Enter your full name" readonly required> -->
+              <div class="form-group">
+                <label for="username">Full Name *:</label>
+                <input type="text" name="fullname" id="username"  placeholder="Enter your name *"  autocomplete="off"  required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email"  placeholder="youremail@domain.com" required>
+                <div class="error">Your email is invalid</div>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" placeholder="12-123-123456" id="phone"  maxlength="6">
+              </div>
+              <div class="form-group">
+                <label for="pin">Pin Number</label>
+                <input type="number" name="number" id="pin" maxlength="6"   placeholder="pin number *" >
+              </div>
+              <label for="agree">
+              <input type="checkbox" name="terms" value="agree" id="agree">
+               I agree following terms before sign up .
+              </label>
+              <div class="form-group">
+                <label >Fruits</label>
+                <label for="banana">
+                <input type="checkbox" name="fruits" value="banana" id="banana">
+                 Banana
+                </label>
+                <label for="apple">
+                <input type="checkbox" name="fruits" value="apple" id="apple">
+                Apple
+              </label>
+              <label for="orange">
+                <input type="checkbox" name="fruits" value="orange" id="orange">
+                Orange
+              </label>
+                 
+              </div>
+              
+              <div class="form-group">
+                <label >Gender</label>
+                <label for="male"><input type="radio" name="gender" value="male" id="male"> Male</label>
+                <label for="female"><input type="radio" name="gender" value="female" id="female">Female</label>
+              </div>
+              <input type="range" name="price" id="">
               <button type="submit">Send</button>
+              <button type="reset">Reset</button>
+              <button >Send</button>
+             
             </form>
+                  <!--form ends-->
           </div>
         </div>
       </div>
@@ -445,7 +496,7 @@
             <h2 class="hero-subtitle">Study in Australia</h2>
             <h1 class="hero-title">best education and migration agent in sydney</h1>
             <p class="lead">Zenith Migration is Australia based educational consultancy providing it’s service all over the world</p>
-            <a href="javascript:;" role="button" class="btn-secondary">Contact Us</a>
+            <a href="javascript:;" role="button" class="btn-secondary js-modal-toggle">Contact Us</a>
             <div id="hero-nav2">  </div>
           </div>
         </div>
@@ -458,6 +509,102 @@
           </div>
         </div>
      </section>
+     <section class="section">
+      <div class="container-fluid">
+        <div class="row">
+          
+        </div>
+      </div>
+     </section>
+
+     <div class="html-modal ">
+        <div class="html-modal-container"> 
+          <header class="html-modal-header">
+            <h1 class="html-modal-title">Modal TItle</h1>
+            <a href="#" role="button" class="html-modal-close js-modal-toggle">X</a>
+          </header>
+          <div class="html-modal-body">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos porro ipsa iste, tenetur neque ducimus officiis, fugit aliquam atque quod minus rem alias similique corporis, explicabo autem reprehenderit voluptatem saepe!
+            Impedit, sequi. 
+          </div>
+        </div>
+        <div class="html-modal-backdrop js-modal-toggle"></div>
+     </div>
+     
+     <table class="table" >
+       <thead>
+        <tr class="table-primary">
+          <th>SN.</th>
+          <th >First Name</th>
+          <th>Last Name</th>
+         </tr>
+       </thead>
+       <tbody>
+        <td>1</td>
+        <td colspan="2">Shrawan Shrestha</td>
+       </tbody>
+       <tfoot>
+          <tr ro>
+            <td>Total </td>
+            <td colspan="2">  11555</td>
+          </tr>
+       </tfoot>
+     </table>
+
+     <!--css grid starts-->
+     <div class="grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+      <div>11</div>
+      <div>12</div>
+     </div>
+     <!--css grid ends-->
+
+ 
+
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>

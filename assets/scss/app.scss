@@ -1,0 +1,20 @@
+@import  "./base/";
+@import  "./component/";
+@import  "./layout/";
+@import  "./page/";
+// @import  "./vendors/";
+
+body {
+    background-color: blue;
+    display: flex;
+    padding-top: rem(16);
+    margin-top: rem(32);
+   
+
+}
+
+.card {
+    @include centerAll();
+}
+
+ 

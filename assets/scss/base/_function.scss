@@ -1,0 +1,13 @@
+@use "sass:math";
+
+@function rem($value, $baseSize:16) {
+    $remValue: math.div($value,  $baseSize) + rem;
+    // $remValue: calc($value / $baseSize) * 1rem;
+    @return $remValue;
+}
+ 
+
+@function em($value, $baseSize:16) {
+    $remValue: math.div($value, $baseSize) + em; 
+    @return $remValue;
+}

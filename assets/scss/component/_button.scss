@@ -1,0 +1,14 @@
+.btn {
+    @include btnProps;
+    font-size:18px; 
+}
+
+.btn-primary {
+    @include btnProps(aqua);
+    
+}
+
+.btn-secondary {
+    @include btnProps($bg:yellow);
+   
+}

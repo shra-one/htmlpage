@@ -62,4 +62,9 @@ $(document).ready(function(){
 
   $(function(){
      // slider code goes here
+     $('.js-modal-toggle').on("click", function(){
+     $('.html-modal').toggleClass('active');
+     })
   })
+
+ 

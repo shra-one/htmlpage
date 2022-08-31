@@ -1,0 +1,17 @@
+@mixin centerAll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+@mixin btnProps($bg:gray) {
+    background-color:$bg;
+    color:white;
+    padding:8px 16px;
+    border-radius:4px ;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    @content;
+}

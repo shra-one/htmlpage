@@ -1,3 +1,4 @@
+@use "sass:math";
 * {
     margin:0;
     padding:0;
@@ -627,25 +628,15 @@ html {
 }
 
 @function rem($value, $baseSize:16) {
-    $remValue: ($value / $baseSize) + rem; 
+    $remValue: math.div($value,  $baseSize) + rem; 
     @return $remValue;
 }
-@function sem($value, $baseSize:16) {
-    $remValue: ($value / $baseSize) + em; 
+@function em($value, $baseSize:16) {
+    $remValue: math.div($value, $baseSize) + em; 
     @return $remValue;
 }
 
-@function em($pixels, $context:16) {
-    @if (unitless($pixels)) {
-      $pixels: $pixels * 1px;
-    }
-  
-    @if (unitless($context)) {
-      $context: $context * 1px;
-    }
-  
-    @return $pixels / $context * 1em;
-  }
+ 
 //example
 .div {
     width:rem(200);
@@ -794,7 +785,9 @@ html {
 
     &--2 {
          position: relative;
-         height:100vh;
+        //  height:100vh;
+        //  height: min(800px, 100vh);
+         min-height: min(800px, 100vh);
          display: flex;
          align-items: center;
          
@@ -865,5 +858,272 @@ html {
             }
         }
             
+    }
+}
+
+
+// MIXIN
+// FUNCTION
+// PLACEHOLDERS //
+// EXTENDS //
+
+//CSS
+// CSS FLEX
+// CSS GRID
+
+// BOOTSTRAP
+/**
+ *
+ * PLACEHODERS
+ *
+ */
+
+// center-all
+%center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+//example 
+.center-all {
+    @extend %center-all;
+}
+
+.card {
+    @extend %center-all;
+}
+
+
+/**
+ *
+ * MIXIN
+ *
+ */
+ $colors: (
+    primary: #007991,
+    secondary: #55D3AE,
+    tertiary: #D35555,
+    gradientFirstColour: #007991,
+    gradientSecondColour: #34EBE9
+); 
+ 
+@mixin btnProps {
+    background-color:map-get($colors, primary);
+    color:white;
+    padding:8px 16px;
+    border-radius:4px ;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    @content;
+}
+//example 
+.btn {
+    @include btnProps;
+    font-size:18px; 
+}
+
+.btn-primary {
+    @include btnProps;
+    background-color: blue;
+}
+
+//responsive media query 1
+@mixin respond ($breakpoint) {
+
+    // $breakpoint is simply a variable that can have several values
+
+    @if $breakpoint==tablet {
+
+        // here `laptop` is the value of $breakpoint
+        // when call laptop, we mean the following piece of code        
+
+    @media only screen and (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint==mobile {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+}
+//responsive media query 2
+$media: (
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    2xl: 1536px,
+    3xl: 1920px,
+);
+
+@mixin md($breakpoint) {
+    @each $breakpoints, $size in $media {
+        @if $breakpoint==$breakpoints {
+            @media screen and (min-width: $size) {
+                @content;
+            }
+        }
+    }
+}
+
+form:invalid input[required]:invalid {
+    // outline:2px solid red;
+} 
+.form-group {
+    // display: flex;
+    margin-bottom:16px;
+    >label {
+            display: block;
+        margin-bottom:8px;
+    }
+    input:focus:invalid {
+        outline:2px solid red;
+    }
+    input:focus:valid {
+        outline:2px solid greenyellow;
+    }
+    input:not([type="checkbox"], [type="radio"], [type="range"] [type="submit"]), [type="reset"]{
+    //    border:1px solid red;
+    }
+    input[type="text"], input[type="email"], input[type="number"], input[type="tel"], textarea {
+        padding:8px 12px;
+        border-radius: 4px;
+       
+        
+        &::placeholder {
+            color:gray;
+            font-style: italic;
+            
+        }
+    }
+}
+
+.html-modal {
+    $p:&;
+    position: fixed;
+    inset:0;
+    z-index: -100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:30px;
+     width:100%;
+    height:100%;
+    top:100%;
+   
+    &.active {       
+        transform:translateY(0);
+        z-index: 999;
+        top:0;
+        #{$p}-container {
+            transform: translateY(0);
+            max-height: 80vh;
+            transition: transform 0.3s;
+           
+        }
+        #{$p}-backdrop {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+
+    &-container {
+        background-color: white;
+        max-width: 927px;
+        margin:0 auto;
+        position: relative;
+        z-index: 1;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        padding:16px;
+        transform:translateY(100%);
+        transition: transform 0.3s;
+        
+    }
+    &-body {
+        flex:1;
+        overflow-y: auto;
+
+    }
+    &-header {
+        display: flex;
+    }
+    &-title {
+        flex:1;
+    }
+    &-backdrop {
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        inset: 0;
+        width:100%;
+        height:100%;
+        transition: background-color 0.3s;
+
+    }
+}
+
+table {
+    margin:20px;
+    border:1px solid black;
+    td, th {
+        padding:8px;
+        border:1px solid black;
+    }
+}
+
+.grid {
+    background: aqua;
+    padding:16px;
+    
+  display: grid;
+    grid-template-columns: repeat(12, 200px);
+   
+    
+    
+    >*:nth-child(2){
+        background: red;
+    }
+    
+}
+
+.layout {
+    margin:0 0;
+    // background: lightgray;
+    min-height: 100vh;    
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows:auto  1fr auto;
+    grid-template-areas: 
+        "head head"
+        "sidebar content"
+        "footer footer";
+  
+    @media(max-width:767px){
+         grid-template-rows:max-content ;
+        grid-template-areas: 
+        "head head"
+        "sidebar sidebar"
+        "content content"       
+        "footer footer";
+    }
+    .header1 {
+        // grid-column:1/-1;
+        grid-area:head;
+            background:blue;
+        color:white;
+    }
+    .sidebar {
+        grid-area:sidebar;
+    }
+     .main {
+        grid-area:content;
+    }
+    .footer {
+        // grid-column:1/-1;
+        grid-area:footer;
+        background:green;
     }
 }
